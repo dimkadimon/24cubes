@@ -4,7 +4,7 @@ An interactive 3D viewer for Martin Gardner's cube-touching puzzle: how many equ
 
 The famous construction by Robert S. Holmes reaches 24 (face distribution 7 + 7 + 6 + 2 + 1 + 1). This repository contains a schematic 3D reconstruction built from the published 2D face patterns, plus the source figures.
 
-> Note: exact non-overlapping 3D coordinates for that specific construction are not published in the accessible sources. The viewer therefore keeps the six face-groups separated so that no cubes intersect; the slider controls that separation.
+> Note: exact non-overlapping 3D coordinates for that specific construction are not published in the accessible sources. This viewer is a schematic reconstruction from the 2D face patterns, not a collision-free solution.
 
 ## Files
 

@@ -31,11 +31,11 @@ button:hover{background:#eef4fa}
 <div><span class="sw" style="background:#ab47bc"></span> right — 1 cube</div>
 <div><span class="sw" style="background:#26c6da"></span> left — 1 cube</div>
 </div>
-<label for="ex">Separation: <span id="exv">1.27</span></label>
-<input id="ex" type="range" min="1.27" max="2.2" step="0.01" value="1.27">
+<label for="ex">Explode: <span id="exv">0.45</span></label>
+<input id="ex" type="range" min="0" max="1.2" step="0.01" value="0.45">
 <label><input type="checkbox" id="labels" checked> show face counts</label><br>
 <button id="reset">Reset view</button>
-<div class="note">Schematic 3D reconstruction from the published 2D face patterns (Robert S. Holmes's 24-cube construction). Exact non-overlapping coordinates were not published; this viewer keeps the six face-groups separated so no cubes intersect. The slider controls that separation.</div>
+<div class="note">Schematic 3D reconstruction from the published 2D face patterns (Robert S. Holmes's 24-cube construction). Exact non-overlapping 3D coordinates are not published in the accessible sources; this is a schematic reconstruction from the 2D face patterns. The slider separates the six face-groups for clarity.</div>
 </aside>
 </main>
 <script>
@@ -43,7 +43,7 @@ const BOXES = [{"c": [0.0, 0.0, 0.0], "u": [1.0, 0.0, 0.0], "v": [0.0, 1.0, 0.0]
 const COLORS = {C:[120,144,156],'+z':[239,83,80],'-z':[66,165,245],'+x':[102,187,106],'-x':[255,167,38],'+y':[171,71,188],'-y':[38,198,218]};
 const NAMES={C:'', '+z':'7','-z':'7','+x':'6','-x':'2','+y':'1','-y':'1'};
 const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
-let yaw=-0.65, pitch=0.42, zoom=118, explode=1.27, labels=true;
+let yaw=-0.65, pitch=0.42, zoom=118, explode=0.45, labels=true;
 const F=[[0,1,3,2],[4,6,7,5],[0,4,5,1],[2,3,7,6],[0,2,6,4],[1,5,7,3]];
 function add(a,b){return [a[0]+b[0],a[1]+b[1],a[2]+b[2]]}
 function sub(a,b){return [a[0]-b[0],a[1]-b[1],a[2]-b[2]]}
@@ -112,6 +112,6 @@ cv.addEventListener('pointerup',()=>drag=false);
 cv.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(50,Math.min(260,zoom*(e.deltaY>0?0.93:1.07)));draw()},{passive:false});
 document.getElementById('ex').addEventListener('input',e=>{explode=+e.target.value;document.getElementById('exv').textContent=explode.toFixed(2);draw()});
 document.getElementById('labels').addEventListener('change',e=>{labels=e.target.checked;draw()});
-document.getElementById('reset').onclick=()=>{yaw=-0.65;pitch=0.42;zoom=118;explode=0.45;document.getElementById('ex').value=1.27;document.getElementById('exv').textContent='1.27';draw()};
+document.getElementById('reset').onclick=()=>{yaw=-0.65;pitch=0.42;zoom=118;explode=0.45;document.getElementById('ex').value=0.45;document.getElementById('exv').textContent='0.45';draw()};
 draw();
 </script></body></html>
